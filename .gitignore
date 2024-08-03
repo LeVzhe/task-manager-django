@@ -1,0 +1,5 @@
+.vscode
+.flake8
+.pylintrc
+.env
+db.sqlite3
