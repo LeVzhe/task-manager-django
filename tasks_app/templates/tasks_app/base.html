@@ -33,8 +33,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
+                    <li class="navbar-brand text-warning">Здравствуйте, {{ user.first_name}} {{ user.last_name }} - {{ user.email }}</li>
+                    <li class="navbar-brand">|</li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                             {% if user.image %}
                             {{ user }} <img width="20" height="20" src="{{ user.image.url }}" style="border-radius: 50%; border: 1px solid" class="fas fa-user-circle">
