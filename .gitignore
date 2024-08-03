@@ -2,4 +2,5 @@
 .flake8
 .pylintrc
 .env
+media/
 db.sqlite3
