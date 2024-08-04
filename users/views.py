@@ -11,10 +11,6 @@ from users.models import User
 from task_manager.common.views import TitleMixin
 
 
-def index(request):
-    return render(request, "users/users.html")
-
-
 class UserLoginView(TitleMixin, LoginView):
     template_name = "users/login.html"
     form_class = UserLoginForm

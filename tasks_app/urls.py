@@ -1,9 +1,8 @@
-from django.urls import path
+# from django.urls import path
 
-from tasks_app.views import index
 
 app_name = "tasks"  # поле обязательное
 
 urlpatterns = [
-    path("", index, name="index"),
+    # path("", IndexClassView.as_view(), name="index"),
 ]

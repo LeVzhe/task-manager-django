@@ -3,12 +3,12 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from tasks_app.views import index
+from tasks_app.views import IndexClassView
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", index, name="index"),
+    path("", IndexClassView.as_view(), name="index"),
     path("tasks/", include("tasks_app.urls", namespace="tasks")),
     path("users/", include("users.urls", namespace="users")),
 ]
