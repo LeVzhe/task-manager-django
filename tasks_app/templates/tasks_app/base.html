@@ -48,6 +48,9 @@
                             <li>
                                 <a class="dropdown-item" href="{% url 'users:profile' user.id %}">Профиль</a>
                             </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'tasks:tasks'%}">Ваши поля</a>
+                            </li>
                             {% if user.is_staff %}
                                 <li><a class="dropdown-item" href="{% url "admin:index" %}">Админ-панель</a></li>
                             {% endif %}
