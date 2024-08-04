@@ -7,7 +7,7 @@
 
 {% block content %}
     <div class="container" style="background-color: rgba(255, 255, 255, 0.4); padding: 10px;">
-        <h1 class="text-secondary navbar-text">Количество рабочих областей: {{ work_fields.count }}</h1>
+        <h1 class="text-secondary navbar-text text-uppercase display-4">Количество рабочих областей: {{ work_fields.count }}</h1>
         <div class="d-flex flex-wrap justify-content-center">
             {% for field in work_fields %}
                 <div class="card m-2" style="width: 18rem;" title="{{ field.description }}">

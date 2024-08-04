@@ -50,6 +50,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # other apps
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
     # My apps
     "users",
     "tasks_app",
@@ -63,6 +67,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "task_manager.urls"
@@ -147,5 +152,18 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # USERS
 AUTH_USER_MODEL = "users.User"
 LOGIN_URL = "/users/login/"
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/tasks/"
 LOGOUT_REDIRECT_URL = "/"
+
+# Oauth
+SOCIALACCOUNT_PROVIDERS = {
+    "github": {
+        "APP": {
+            "client_id": env("GITHUB_CLIENT_ID"),
+            "secret": env("GITHUB_SECRET_KEY"),
+        },
+        "SCOPE": [
+            "user",
+        ],
+    },
+}

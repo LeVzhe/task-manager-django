@@ -10,6 +10,7 @@ urlpatterns = [
     path("", IndexClassView.as_view(), name="index"),
     path("tasks/", include("tasks_app.urls", namespace="tasks")),
     path("users/", include("users.urls", namespace="users")),
+    path("accounts/", include("allauth.urls")),
 ]
 
 if settings.DEBUG:
