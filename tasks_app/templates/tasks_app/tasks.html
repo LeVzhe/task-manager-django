@@ -1,0 +1,18 @@
+{% extends "tasks_app/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'vendor/css/index.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block content %}
+    <div class="container">
+        <h1>Tasks for User: {{ request.user.username }}</h1>
+        <ul>
+            {% for field in work_fields %}
+                <li>{{ field.work_field.description }}</li>
+                <!-- Здесь вы можете добавить другие поля, связанные с work_field, для отображения -->
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

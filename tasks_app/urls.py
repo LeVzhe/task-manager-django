@@ -1,8 +1,10 @@
-# from django.urls import path
+from django.urls import path
+
+from tasks_app.views import TasksListView
 
 
 app_name = "tasks"  # поле обязательное
 
 urlpatterns = [
-    # path("", IndexClassView.as_view(), name="index"),
+    path("", TasksListView.as_view(), name="tasks"),
 ]

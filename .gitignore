@@ -4,3 +4,4 @@
 .env
 media/
 db.sqlite3
+temporary.txt
