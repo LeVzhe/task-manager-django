@@ -29,7 +29,9 @@ class WorkField(models.Model):
     created_timestamp = models.DateTimeField(
         auto_now_add=True, verbose_name="Время создания"
     )
-    task = models.ForeignKey(to=Task, on_delete=models.CASCADE, verbose_name="Задача")
+    tasks = models.ManyToManyField(
+        to=Task, through="WorkFieldTask", verbose_name="Задачи"
+    )
 
     class Meta:
         verbose_name = "Поле"
@@ -37,3 +39,12 @@ class WorkField(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class WorkFieldTask(models.Model):
+    work_field = models.ForeignKey(
+        WorkField, on_delete=models.CASCADE, verbose_name="Поле"
+    )
+    task = models.ForeignKey(
+        Task, on_delete=models.CASCADE, verbose_name="Задача", null=True, blank=True
+    )

@@ -8,10 +8,9 @@ class WorkFieldAdmin(admin.ModelAdmin):
     list_display = (
         "name",
         "description",
-        "task",
         "created_timestamp",
     )
-    list_display_links = ("name", "description", "task", "created_timestamp")
+    list_display_links = ("name", "description", "created_timestamp")
 
 
 admin.site.register(WorkField, WorkFieldAdmin)
