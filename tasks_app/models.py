@@ -18,6 +18,10 @@ class Task(models.Model):
     )
     piority_status = models.SmallIntegerField(default=LOW, choices=STATUSES)
 
+    class Meta:
+        verbose_name = "Задача"
+        verbose_name_plural = "Задачи"
+
 
 class WorkField(models.Model):
     name = models.CharField(max_length=128, unique=False, verbose_name="Название")
