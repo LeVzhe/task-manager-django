@@ -2,11 +2,25 @@ from django.db import models
 
 
 class Task(models.Model):
-    pass
+    LOW = 0
+    MEDIUM = 1
+    HIGH = 2
+    CRITICAL = 3
+    STATUSES = (
+        (LOW, "Низкий"),
+        (MEDIUM, "Средний"),
+        (HIGH, "Высокий"),
+        (CRITICAL, "Критический"),
+    )
+
+    content = models.CharField(
+        max_length=256, unique=False, verbose_name="Содержание", blank=True, null=True
+    )
+    piority_status = models.SmallIntegerField(default=LOW, choices=STATUSES)
 
 
 class WorkField(models.Model):
-    name = models.CharField(max_length=128, unique=True, verbose_name="Название")
+    name = models.CharField(max_length=128, unique=False, verbose_name="Название")
     description = models.TextField(blank=True, null=True, verbose_name="Описание")
     created_timestamp = models.DateTimeField(
         auto_now_add=True, verbose_name="Время создания"
