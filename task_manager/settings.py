@@ -19,6 +19,8 @@ env = environ.Env(
     # set casting, default value
     DEBUG=(bool),
     SECRET_KEY=(str),
+    GITHUB_CLIENT_ID=(str),
+    GITHUB_SECRET_KEY=(str),
 )
 
 
@@ -75,7 +77,7 @@ ROOT_URLCONF = "task_manager.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

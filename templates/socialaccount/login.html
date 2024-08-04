@@ -1,0 +1,79 @@
+{% extends "socialaccount/base_entrance.html" %}
+{% load static %}
+{% load i18n %}
+{% load allauth %}
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock head_title %}
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    {% if messages or form.non_field_errors %}
+                    <div class="alert {% if form.non_field_errors %}alert-warning{% else %}alert-success{% endif %} alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+                        {% if messages %}
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        {% else %}
+                            {{ form.non_field_errors }}
+                        {% endif %}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endif %}
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                        {% if process == "connect" %}
+                            <div class="card-header">
+                                <h3 class="text-center font-weight-light my-4">
+                                    {% element h1 %}
+                                        {% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}
+                                    {% endelement %}
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                {% element form method="post" no_visible_fields=True %}
+                                    {% slot actions %}
+                                        {% csrf_token %}
+                                        {% element p %}
+                                            {% blocktrans with provider.name as provider %}You are about to connect a new third-party account from {{ provider }}.{% endblocktrans %}
+                                        {% endelement %}
+                                        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            <input class="btn btn-primary" type="submit" value="Продолжить">
+                                            <a class="btn btn-danger" href='{% url "users:login" %}'>Назад</a>
+                                        </div>
+                                    {% endslot %}
+                                {% endelement %}
+                            </div>
+                        {% else %}
+                            <div class="card-header">
+                                <h3 class="text-center font-weight-light my-4">
+                                    {% element h1 %}
+                                        {% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}
+                                    {% endelement %}
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                {% element form method="post" no_visible_fields=True %}
+                                    {% slot actions %}
+                                        {% csrf_token %}
+                                        {% element p %}
+                                            {% blocktrans with provider.name as provider %}You are about to connect a new third-party account from {{ provider }}.{% endblocktrans %}
+                                        {% endelement %}
+                                        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            <input class="btn btn-primary" type="submit" value="Продолжить">
+                                            <a class="btn btn-danger" href='{% url "users:login" %}'>Назад</a>
+                                        </div>
+                                    {% endslot %}
+                                {% endelement %}
+                                
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
