@@ -6,13 +6,17 @@
 {% endblock css %}
 
 {% block content %}
-    <div class="container">
+    <div class="container" style="background-color: rgba(255, 255, 255, 0.4); padding: 10px;">
         <h1>Tasks for User: {{ request.user.username }}</h1>
-        <ul>
+        <div class="d-flex flex-wrap">
             {% for field in work_fields %}
-                <li>{{ field.work_field.description }}</li>
-                <!-- Здесь вы можете добавить другие поля, связанные с work_field, для отображения -->
+                <div class="card m-2" style="width: 18rem;">
+                    <div class="card-body" style="background-color: rgba(173, 216, 230, 0.3); padding: 10px;">
+                        <h5 class="card-title p-3 mb-2 text-white text-center" style="background-color: rgba(173, 216, 230, 1);">{{ field.work_field.name }}</h5>
+                        <!-- Здесь вы можете добавить другие поля, связанные с work_field, для отображения -->
+                    </div>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     </div>
 {% endblock %}
