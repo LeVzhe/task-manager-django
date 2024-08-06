@@ -1,8 +1,11 @@
 from django.views.generic import TemplateView
 from django.views.generic import ListView
+from django.views.generic.edit import FormView
+from django.urls import reverse_lazy
 
 from task_manager.common.views import TitleMixin
-from tasks_app.models import WorkField  # , WorkFieldTask
+from tasks_app.models import WorkField
+from tasks_app.forms import FieldAddForm
 
 
 class IndexClassView(TitleMixin, TemplateView):
@@ -24,6 +27,8 @@ class TasksListView(TitleMixin, ListView):
         return queryset
 
 
-class AddFieldTitleView(TitleMixin, TemplateView):
+class AddFieldFormView(TitleMixin, FormView):
     template_name = "tasks_app/add_field.html"
+    form_class = FieldAddForm
+    success_url = reverse_lazy("tasks:tasks")
     title = "Task Manager :: Добавить поле"

@@ -10,13 +10,14 @@
         <h1 class="text-secondary navbar-text text-uppercase display-4">Добавьте новое рабочее поле.</h1>
         <div class="d-flex flex-wrap justify-content-center">
             <form>
+                {% csrf_token %}
                 <div class="mb-3">
-                    <label for="nameInput" class="form-label">Название</label>
-                    <input type="text" class="form-control" id="nameInput">
+                    <label for="{{ form.name.id_for_label }}" class="form-label">Название</label>
+                    {{ form.name }}
                 </div>
                 <div class="mb-3">
-                    <label for="descriptionInput" class="form-label">Описание</label>
-                    <input type="text" class="form-control" id="descriptionInput">
+                    <label for="{{ form.description.id_for_label }}" class="form-label">Описание</label>
+                    {{ form.description }}
                 </div>
                 <button type="submit" class="btn btn-primary me-2">Добавить</button>
                 <a href="{% url "tasks:tasks" %}" class="btn btn-danger ms-auto float-right">Назад</a>
