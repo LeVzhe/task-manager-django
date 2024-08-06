@@ -22,3 +22,8 @@ class TasksListView(TitleMixin, ListView):
             self.ordering
         )
         return queryset
+
+
+class AddFieldTitleView(TitleMixin, TemplateView):
+    template_name = "tasks_app/add_field.html"
+    title = "Task Manager :: Добавить поле"
