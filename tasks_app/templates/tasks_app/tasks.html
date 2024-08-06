@@ -1,4 +1,5 @@
 {% extends "tasks_app/base.html" %}
+{% load humanize %}
 {% load static %}
 
 {% block css %}
@@ -12,7 +13,7 @@
             {% for field in work_fields %}
                 <div class="card m-2" style="width: 18rem;" title="{{ field.description }}">
                     <div class="card-body" style="background-color: rgba(173, 216, 230, 0.3); padding: 10px;">
-                        <i class='text-info'>Создано: {{ field.created_timestamp }}</i>
+                        <i class='text-info'>Создано: {{ field.created_timestamp|naturaltime }}</i>
                         <h5 class="card-title p-3 mb-2 text-white text-center" style="background-color: rgba(173, 216, 230, 1);">{{ field.name }}</h5>
                         <!-- Здесь вы можете добавить другие поля, связанные с work_field, для отображения -->
                     </div>

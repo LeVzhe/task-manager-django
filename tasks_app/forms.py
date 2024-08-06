@@ -3,7 +3,7 @@ from django import forms
 from tasks_app.models import WorkField
 
 
-class FieldAddForm(forms.Form):
+class FieldAddForm(forms.ModelForm):
     name = forms.CharField(
         widget=forms.TextInput(
             attrs={
