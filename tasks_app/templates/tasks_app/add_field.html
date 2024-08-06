@@ -9,18 +9,18 @@
     <div class="container" style="background-color: rgba(255, 255, 255, 0.4); padding: 10px;">
         <h1 class="text-secondary navbar-text text-uppercase display-4">Добавьте новое рабочее поле.</h1>
         <div class="d-flex flex-wrap justify-content-center">
-    <form>
-        <div class="mb-3">
-            <label for="nameInput" class="form-label">Название</label>
-            <input type="text" class="form-control" id="nameInput">
+            <form>
+                <div class="mb-3">
+                    <label for="nameInput" class="form-label">Название</label>
+                    <input type="text" class="form-control" id="nameInput">
+                </div>
+                <div class="mb-3">
+                    <label for="descriptionInput" class="form-label">Описание</label>
+                    <input type="text" class="form-control" id="descriptionInput">
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Добавить</button>
+                <a href="{% url "tasks:tasks" %}" class="btn btn-danger ms-auto float-right">Назад</a>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="descriptionInput" class="form-label">Описание</label>
-            <input type="text" class="form-control" id="descriptionInput">
-        </div>
-        <button type="submit" class="btn btn-primary me-2">Добавить</button>
-        <a href="{% url "tasks:tasks" %}" class="btn btn-danger ms-auto float-right">Назад</a>
-    </form>
-</div>
     </div>
 {% endblock %}
