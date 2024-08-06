@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
     # other apps
     "allauth",
     "allauth.account",
@@ -158,6 +159,8 @@ LOGIN_REDIRECT_URL = "/tasks/"
 LOGOUT_REDIRECT_URL = "/"
 
 # Oauth
+
+SITE_ID = 1
 SOCIALACCOUNT_PROVIDERS = {
     "github": {
         "APP": {
