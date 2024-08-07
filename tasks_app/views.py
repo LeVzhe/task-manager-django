@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView
 
 from task_manager.common.views import TitleMixin
 from tasks_app.forms import FieldAddForm, TaskAddForm
-from tasks_app.models import WorkField, Task
+from tasks_app.models import WorkField, Task, WorkFieldTask
 from users.models import WorkFieldUser
 
 
@@ -52,12 +52,24 @@ class AddFieldCreateView(TitleMixin, CreateView):
 
 
 class AddTaskCreateView(TitleMixin, CreateView):
-    template_name = "tasks_app/tasks.html"
+    template_name = "tasks_app/add_task.html"
     model = Task
     form_class = TaskAddForm
     success_url = reverse_lazy("tasks:tasks_list")
     title = "Task Manager :: Добавить Задачу"
-    success_message = "Задача умпешно создана!"
+    success_message = "Задача уcпешно создана!"
+
+    def form_valid(self, form):
+        current_work_field = WorkField.objects.get(id=self.kwargs["field_id"])
+        content = form.cleaned_data["content"]
+
+        new_task = Task(content=content)
+        new_task.save()
+
+        work_field_task = WorkFieldTask(task=new_task, work_field=current_work_field)
+        work_field_task.save()
+
+        return super().form_valid(form)
 
 
 @login_required

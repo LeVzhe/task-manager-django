@@ -9,7 +9,7 @@
     <div class="container" style="background-color: rgba(255, 255, 255, 0.4); padding: 10px;">
         <h1 class="text-secondary navbar-text text-uppercase display-4"><b>Добавьте задачу</b></h1>
         <div class="d-flex flex-wrap justify-content-center">
-            <form action="{% url 'tasks:add_task' field_id=field_id %}" method='POST'>
+            <form action="{% url 'tasks:add_task' request.resolver_match.kwargs.field_id %}" method='POST'>
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="{{ form.content.id_for_label }}" class="form-label">Задача</label>

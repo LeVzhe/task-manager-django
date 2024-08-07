@@ -13,5 +13,5 @@ urlpatterns = [
     path("", TasksListView.as_view(), name="tasks_list"),
     path("add_field/", AddFieldCreateView.as_view(), name="add_field"),
     path("delete/<int:field_id>/", field_remove, name="delete_field"),
-    path("add_task/", AddTaskCreateView.as_view(), name="add_task"),
+    path("add_task/<int:field_id>/", AddTaskCreateView.as_view(), name="add_task"),
 ]

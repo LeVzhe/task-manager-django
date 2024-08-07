@@ -24,7 +24,7 @@
                             {% for task in field.tasks.all %}
                                 <li class="list-group-item" style="background-color: rgba(255, 255, 255, 0.8); color: #4e6d7a; border-radius: 5px; margin-bottom:5px;">{{ task.content }}</li>
                             {% endfor %}
-                            <a href="#" class="list-group-item text-center" style="text-decoration: none; cursor: pointer; transition: all 0.3s ease; background-color: rgba(200, 200, 200, 0.8); color: #4e6d7a; border-radius: 5px;" onmouseover="this.style.backgroundColor='rgba(150, 150, 150, 0.8)'; this.style.color='white';" onmouseout="this.style.backgroundColor='rgba(200, 200, 200, 0.8)'; this.style.color='#4e6d7a';">
+                            <a href="{% url "tasks:add_task" field_id=field.id %}" class="list-group-item text-center" style="text-decoration: none; cursor: pointer; transition: all 0.3s ease; background-color: rgba(200, 200, 200, 0.8); color: #4e6d7a; border-radius: 5px;" onmouseover="this.style.backgroundColor='rgba(150, 150, 150, 0.8)'; this.style.color='white';" onmouseout="this.style.backgroundColor='rgba(200, 200, 200, 0.8)'; this.style.color='#4e6d7a';">
                                 Добавить задачу
                             </a>
                         </ul>
