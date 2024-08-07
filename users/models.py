@@ -8,7 +8,9 @@ class User(AbstractUser):
     image = models.ImageField(upload_to="users_images", null=True, blank=True)
     is_verified_email = models.BooleanField(default=False)
     work_field = models.ManyToManyField(
-        to=WorkField, through="WorkFieldUser", verbose_name="Поле"
+        to=WorkField,
+        through="WorkFieldUser",
+        verbose_name="Поле",
     )
 
 

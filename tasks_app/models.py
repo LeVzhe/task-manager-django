@@ -30,7 +30,10 @@ class WorkField(models.Model):
         auto_now_add=True, verbose_name="Время создания"
     )
     tasks = models.ManyToManyField(
-        to=Task, through="WorkFieldTask", verbose_name="Задачи", related_name="tasks"
+        to=Task,
+        through="WorkFieldTask",
+        verbose_name="Задачи",
+        related_name="tasks",
     )
 
     class Meta:
@@ -46,5 +49,5 @@ class WorkFieldTask(models.Model):
         WorkField, on_delete=models.CASCADE, verbose_name="Поле"
     )
     task = models.ForeignKey(
-        Task, on_delete=models.CASCADE, verbose_name="Задача", null=True, blank=True
+        Task, verbose_name="Задача", on_delete=models.SET_NULL, null=True, blank=True
     )
