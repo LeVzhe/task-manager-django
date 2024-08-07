@@ -49,5 +49,5 @@ class WorkFieldTask(models.Model):
         WorkField, on_delete=models.CASCADE, verbose_name="Поле"
     )
     task = models.ForeignKey(
-        Task, verbose_name="Задача", on_delete=models.SET_NULL, null=True, blank=True
+        Task, verbose_name="Задача", on_delete=models.CASCADE, null=True, blank=True
     )
