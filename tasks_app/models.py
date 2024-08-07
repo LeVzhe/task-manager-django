@@ -30,7 +30,7 @@ class WorkField(models.Model):
         auto_now_add=True, verbose_name="Время создания"
     )
     tasks = models.ManyToManyField(
-        to=Task, through="WorkFieldTask", verbose_name="Задачи"
+        to=Task, through="WorkFieldTask", verbose_name="Задачи", related_name="tasks"
     )
 
     class Meta:
