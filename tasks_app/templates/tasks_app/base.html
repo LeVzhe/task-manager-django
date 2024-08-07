@@ -33,7 +33,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
-                    <li class="navbar-brand text-warning">Здравствуйте, {{ user.first_name}} {{ user.last_name }} - {{ user.email }}</li>
+                    <li class="navbar-brand text-warning">Здравствуйте, {{ user.first_name}} {{ user.last_name }} :: {{ user.email }}</li>
                     <li class="navbar-brand">|</li>
                     {% if request.path == "/tasks/" %}
                         <li class="nav-item dropdown">

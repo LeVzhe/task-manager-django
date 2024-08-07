@@ -14,7 +14,7 @@
                 <div class="card m-2" style="width: 18rem;" title="{{ field.description }}">
                     <div class="card-body " style="background-color: rgba(173, 216, 230, 0.3); padding: 10px;">
                         <div class="form-group d-flex align-items-center justify-content-between mt-0 mb-0">
-                            <i class='text-info'>Создано: {{ field.created_timestamp|naturaltime }}</i>
+                            <i class='text-info'>#{{ field.id }} Создано: {{ field.created_timestamp|naturaltime }}</i>
                             <a style="cursor: pointer; color: lightblue;" onclick="closeWindow()" href="{% url "tasks:delete_field" field.id%}" title='Удалить'>
                                 <i class="icon fas fa-times" onmouseover="this.style.transition='color 0.3s ease'; this.style.color='grey'" onmouseout="this.style.transition='color 0.3s ease'; this.style.color='lightblue'"></i>
                             </a>
