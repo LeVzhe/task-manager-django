@@ -1,12 +1,14 @@
 from django.views.generic import TemplateView
 from django.views.generic import ListView
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import HttpResponseRedirect
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 
 from task_manager.common.views import TitleMixin
 from tasks_app.models import WorkField
-from users.models import WorkFieldUser
 from tasks_app.forms import FieldAddForm
+from users.models import WorkFieldUser
 
 
 class IndexClassView(TitleMixin, TemplateView):
@@ -37,10 +39,8 @@ class AddFieldCreateView(TitleMixin, CreateView):
     success_message = "Поле успешно создано!"
 
     def form_valid(self, form):
-        # Получаем текущего пользователя, который добавляет поле
         current_user = self.request.user
 
-        # Создаем объект поля, но не сохраняем его в базе данных
         field_name = form.cleaned_data["name"]
         field_description = form.cleaned_data["description"]
         new_work_field = WorkField(name=field_name, description=field_description)
@@ -50,3 +50,10 @@ class AddFieldCreateView(TitleMixin, CreateView):
         work_field_user.save()
 
         return super().form_valid(form)
+
+
+@login_required
+def field_remove(request, field_id):
+    field = WorkField.objects.get(id=field_id)
+    field.delete()
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])

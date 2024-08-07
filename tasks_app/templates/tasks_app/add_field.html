@@ -7,7 +7,7 @@
 
 {% block content %}
     <div class="container" style="background-color: rgba(255, 255, 255, 0.4); padding: 10px;">
-        <h1 class="text-secondary navbar-text text-uppercase display-4">Добавьте новое рабочее поле.</h1>
+        <h1 class="text-secondary navbar-text text-uppercase display-4"><b>Добавьте новое рабочее поле</b></h1>
         <div class="d-flex flex-wrap justify-content-center">
             <form action="{% url 'tasks:add_field' %}" method='POST'>
                 {% csrf_token %}
