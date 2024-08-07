@@ -8,12 +8,17 @@
 
 {% block content %}
     <div class="container" style="background-color: rgba(255, 255, 255, 0.4); padding: 10px;">
-        <h1 class="text-secondary navbar-text text-uppercase display-4">Количество рабочих областей: {{ work_fields.count }}</h1>
+        <h1 class="text-secondary navbar-text text-uppercase display-4"><b>Количество рабочих областей: {{ work_fields.count }}</b></h1>
         <div class="d-flex flex-wrap justify-content-center">
             {% for field in work_fields %}
                 <div class="card m-2" style="width: 18rem;" title="{{ field.description }}">
-                    <div class="card-body" style="background-color: rgba(173, 216, 230, 0.3); padding: 10px;">
-                        <i class='text-info'>Создано: {{ field.created_timestamp|naturaltime }}</i>
+                    <div class="card-body " style="background-color: rgba(173, 216, 230, 0.3); padding: 10px;">
+                        <div class="form-group d-flex align-items-center justify-content-between mt-0 mb-0">
+                            <i class='text-info'>Создано: {{ field.created_timestamp|naturaltime }}</i>
+                            <a style="cursor: pointer; color: grey;" onclick="closeWindow()" href="#">
+                                <i class="fas fa-times" style="color: lightblue;"></i>
+                            </a>
+                        </div>
                         <h5 class="card-title p-3 mb-2 text-white text-center" style="background-color: rgba(173, 216, 230, 1);">{{ field.name }}</h5>
                         <!-- Здесь вы можете добавить другие поля, связанные с work_field, для отображения -->
                     </div>

@@ -28,11 +28,11 @@ class TasksListView(TitleMixin, ListView):
         return queryset
 
 
-class AddFieldFormView(TitleMixin, CreateView):
+class AddFieldCreateView(TitleMixin, CreateView):
     template_name = "tasks_app/add_field.html"
     model = WorkField
     form_class = FieldAddForm
-    success_url = reverse_lazy("tasks:tasks")
+    success_url = reverse_lazy("tasks:tasks_list")
     title = "Task Manager :: Добавить поле"
     success_message = "Поле успешно создано!"
 
