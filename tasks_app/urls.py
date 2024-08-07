@@ -1,7 +1,6 @@
 from django.urls import path
 
-from tasks_app.views import TasksListView, AddFieldCreateView, field_remove
-
+from tasks_app.views import AddFieldCreateView, TasksListView, field_remove
 
 app_name = "tasks"  # поле обязательное
 

@@ -1,13 +1,12 @@
-from django.views.generic import TemplateView
-from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import HttpResponseRedirect
-from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
+from django.views.generic import ListView, TemplateView
+from django.views.generic.edit import CreateView
 
 from task_manager.common.views import TitleMixin
-from tasks_app.models import WorkField
 from tasks_app.forms import FieldAddForm
+from tasks_app.models import WorkField
 from users.models import WorkFieldUser
 
 
