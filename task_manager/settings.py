@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.github",
     "django.contrib.humanize",
+    "widget_tweaks",
     # My apps
     "users",
     "tasks_app",
