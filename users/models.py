@@ -18,7 +18,6 @@ class WorkFieldUser(models.Model):
     work_field = models.ForeignKey(
         WorkField,
         on_delete=models.CASCADE,
-        verbose_name="Поле",
         null=True,
         blank=True,
     )

@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
 from task_manager.common.views import TitleMixin
+
 # self imports
 from users.forms import UserLoginForm, UserProfileForm, UserRegistrationForm
 from users.models import User
@@ -20,7 +21,7 @@ class UserRegistrationView(TitleMixin, CreateView):
     model = User
     template_name = "users/registration.html"
     form_class = UserRegistrationForm
-    success_url = reverse_lazy("users:index")
+    success_url = reverse_lazy("users:login")
     success_message = "Регистрация прошла успешно!"
     title = "Task Manager :: Регистрация"
 
